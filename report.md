@@ -15,31 +15,31 @@ The underlying deep Q-Network is implemented in `networks.py` using `torch`. The
  
 The parameters used in the Deep Q-Learning algorithm are as follows:
 
-- gamma:
+- **gamma**:
     RL discount factor for future rewards (Bellman's return) 
-- learningRate:
+- **learningRate**:
     The learning rate for the gradient descent while training the (local) neural network; 
     This parameter corresponds more or less to the parameter alpha in RL controlling the how much the most recent episodes contribute to the update of the Q-Table                            
-- dropProb:
+- **dropProb**:
     Drop probability for the drop-out regularization.
-- dqnUpdatePace:
+- **dqnUpdatePace**:
     Determines after how many state-action steps the local network should  be updated. 
-- targetDqnUpdatePace:
+- **targetDqnUpdatePace**:
     If targetDqnUpdatePace < 1: a soft update is performed at each local network update
     If targetDqnUpdatePace >= 1: the target network is replaced by the local network
-- bufferSize:
+- **bufferSize**:
     Size of the memory buffer containing the experiences < s, a, r, s’ >
-- batchSize:
+- **batchSize**:
     The batch size used in the gradient descent during learning
-- batchEpochs:
+- **batchEpochs**:
     The number of epochs when training the network  
 
 In `Navigation.ipynb` we try out different combinations of the parameters whereby following parameter values are held fixed:
 
-- gamma = 0.99
-- learningRate = 1e-4
-- dqnUpdatePace = 5
-- bufferSize = int(1e6)
+- **gamma** = 0.99
+- **learningRate** = 1e-4
+- **dqnUpdatePace** = 5
+- **bufferSize** = int(1e6)
 
 
 ## Results

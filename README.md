@@ -33,7 +33,8 @@ Additionally you will need following packages:
 * **numpy**: shouldn't really surprise you...
 * **torch**: used for the deep Q-Network
 * **unityagents**: used to run the downloaded [Banana Collector](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#banana-collector) environment
-which can be directly installed while running the **Jupiter** notebook ``Navigation.ipynb``
+
+which can be directly installed while running the **Jupiter** notebook `Navigation.ipynb`
 
 
 
