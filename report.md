@@ -16,7 +16,7 @@ The underlying deep Q-Network is implemented in `networks.py` using `torch`. The
 The parameters used in the Deep Q-Learning algorithm are as follows:
 
 - **gamma**:
-    (RL discount factor for future rewards (see [Bellman's equation] https://en.wikipedia.org/wiki/Bellman_equation#A_dynamic_decision_problem)) 
+    (RL discount factor for future rewards (see [Bellman's equation](https://en.wikipedia.org/wiki/Bellman_equation#A_dynamic_decision_problem)) 
 - **learningRate**:
     The learning rate for the gradient descent while training the (local) neural network; 
     This parameter corresponds more or less to the parameter alpha in RL controlling the how much the most recent episodes contribute to the update of the Q-Table                            
