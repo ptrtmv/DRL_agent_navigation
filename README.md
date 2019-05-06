@@ -1,14 +1,14 @@
 [image1]: https://user-images.githubusercontent.com/10624937/42135619-d90f2f28-7d12-11e8-8823-82b970a54d7e.gif "Trained Agent"
 
-### DRL_agent_navigation
-A DRL agent navigating in a large, square world (continuous state) and collecting bananas (discrete actions)! 
+### DRL Agent Navigation
+A DRL agent navigating in a large, square world (continuous state), collecting bananas (discrete actions)! 
 
 
 ---
 
 ## Intorduction
 
-This is a Deep Reinforcement Learning project training a single Unity ML-agent to navigate the [Banana Collector](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#banana-collector) environment which has continuous 37 dimensional state space and 4 possible actions.
+This is a Deep Reinforcement Learning project training a single Unity ML-agent to navigate the [Banana Collector environment](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#banana-collector)  which has continuous 37 dimensional state space and 4 possible actions.
 
 ![Trained Agent][image1]
 
