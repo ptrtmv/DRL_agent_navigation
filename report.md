@@ -109,7 +109,7 @@ The training results are displayed in the following plot:
   <img width="460" height="300" src="plots/scores4.png">
 </p>
 
-Now the environment is solved in only in 184 episodes. However the oscillation during the afterwards training which were observed in the previous cases is much greater and the performance drops even below the benchmark of 13.
+Now the environment is solved in only in 203 episodes. However the oscillation during the afterwards training which were observed in the previous cases is much greater and the performance drops even below the benchmark of 13.
 
 The weights of the trained network with this parameter configuration at the peak of its maximum mean score are saved in `checkpoint.pth`.
 
