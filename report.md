@@ -48,7 +48,7 @@ In `Navigation.ipynb` we try out different combinations of the parameters whereb
 
 The task is episodic, and in order to solve the environment, our agent must get an average score of +13 over 100 consecutive episodes.
 
-For all parameter configurations we have trained the network for `1100` episodes even in the cases when the environment was solved for less than `1100` episodes we continued with training in order to observe further improvements. 
+For all parameter configurations we train the network for `1100` episodes. Even in the cases when the environment is solved for less than `1100` episodes we continue training in order to observe further improvements. 
 
 The _Epsilon_ parameter governing the policy is varied during training starting with `epsStart = 1` with a decay of `epsDecay=0.97` after each episode to a minimum value of `epsEnd=0.01` which is reached after `151` episodes.
 
