@@ -25,8 +25,8 @@ The parameters used in the Deep Q-Learning algorithm are as follows:
 - **dqnUpdatePace**:
     Determines after how many state-action steps the local network should  be updated. 
 - **targetDqnUpdatePace**:
-    If targetDqnUpdatePace < 1: a soft update is performed at each local network update
-    If targetDqnUpdatePace >= 1: the target network is replaced by the local network
+    * If targetDqnUpdatePace < 1: a soft update is performed at each local network update
+    * If targetDqnUpdatePace >= 1: the target network is replaced by the local network
 - **bufferSize**:
     Size of the memory buffer containing the experiences < s, a, r, s’ >
 - **batchSize**:
