@@ -13,7 +13,7 @@ This is a Deep Reinforcement Learning project training a single Unity ML-agent t
 ![Trained Agent][image1]
 
 
-A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.  Thus, the goal of your agent is to collect as many yellow bananas as possible while avoiding blue bananas.
+A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.  The goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas.
 
 The task is episodic, and in order to solve the environment, our agent must get an average score of +13 over 100 consecutive episodes.
 
