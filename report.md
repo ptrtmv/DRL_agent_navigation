@@ -79,7 +79,7 @@ The training results are displayed in the following plot:
   <img width="460" height="300" src="plots/scores2.png">
 </p>
 
-Now the environment is solved in 523 episodes which is a noticeable improvement compared to the soft update. It is interesting to observe that the averaged score continues to rise until about 550 training episodes when the average score reaches a value of about 16. Afterwards there is a drop and after the 600-th training episode it rises again and stabilizes at a value oscillating around 15.  
+Now the environment is solved in 523 episodes which is a noticeable improvement compared to the soft update. It is interesting to observe that the averaged score continues to rise until about 550 training episodes unltil it reaches a value of about 16. Afterwards there is a drop and after the 600-th training episode it rises again and stabilizes at a value oscillating around 15.  
 
 
 # Hard Update of the Target Network with Increased Number of Epochs
