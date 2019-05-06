@@ -15,7 +15,7 @@ This is a Deep Reinforcement Learning project training a single Unity ML-agent t
 
 A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.  The goal of the agent is to collect as many yellow bananas as possible while avoiding blue bananas.
 
-The task is episodic, and in order to solve the environment, our agent must get an average score of +13 over 100 consecutive episodes.
+The task is episodic, and in order to solve the environment, the agent must get an average score of +13 over 100 consecutive episodes.
 
 
 
@@ -28,19 +28,19 @@ In order to run the environment you need to download it for your  operation syst
 * Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86_64.zip)
 
 
-Additionally you will need following packages: 
+Additionally you may need to install following packages: 
 * **matplotlib**: used to visualise the training results 
 * **numpy**: shouldn't really surprise you...
 * **torch**: used for the deep Q-Network
 * **unityagents**: used to run the downloaded [Banana Collector](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#banana-collector) environment
 
-which can be directly installed while running the **Jupiter** notebook `Navigation.ipynb`
+The packages can be directly installed while running the **Jupiter** notebook `Navigation.ipynb`
 
 
 
 ## Instructions
 
-You can run the project via the **Jupiter** notebook `Navigation.ipynb`. The classes defining the agent and its "brain" are stored in `agent.py` and the Q-Network is defined in `networks.py`.
+You can run the project via the **Jupiter** notebook `Navigation.ipynb`. The classes defining the agent and its "brain" are stored in `agent.py` and the depp Q-Network is defined in `networks.py`.
 
 
 
