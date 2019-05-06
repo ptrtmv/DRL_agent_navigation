@@ -4,8 +4,12 @@ Created on May 2, 2019
 @author: ptrtmv
 '''
 
+import io
+
 import numpy as np
 import random
+import pickle
+from copy import copy
 
 import torch
 import torch.nn.functional as F
@@ -38,22 +42,22 @@ class DrlAgent():
     def experience(self, state, action, reward, next_state, done):    
         self.brain.experience(state, action, reward, next_state, done)
 
-    def saveTrainingStatus(self,pathToFile):
-        torch.save(self.brain.dqnLocal.state_dict(), pathToFile)
+    def saveTrainingStatus(self,pathToWeightsFile):        
+        torch.save(self.brain.dqnLocal.state_dict(), pathToWeightsFile)
 
 
 class DrlBrain():
     
     def __init__(self, stateSize, actionSize, 
-                 hiddenLayers = None, 
-                 gamma = 0.99,
-                 learningRate = 1e-4, 
-                 dropProb = .0,
-                 dqnUpdatePace = 4, 
-                 targetDqnUpdatePace = 1e-3,
-                 bufferSize = int(1e5),
-                 batchSize = 64, 
-                 batchEpochs = 1,
+                hiddenLayers = None, 
+                gamma = 0.99,
+                learningRate = 1e-4, 
+                dropProb = .0,
+                dqnUpdatePace = 4, 
+                targetDqnUpdatePace = 1e-3,
+                bufferSize = int(1e5),
+                batchSize = 64, 
+                batchEpochs = 1,
                  seed = None):
         """
         Args:
@@ -99,8 +103,9 @@ class DrlBrain():
         self.targetDqnUpdatePace = targetDqnUpdatePace
         self.dqnUpdatePace = dqnUpdatePace
         self.numberExperiences = 0
-        
+        self.dropProb = dropProb
         self.learningRate = learningRate
+        
         self.gamma = gamma
         
                 
@@ -112,14 +117,14 @@ class DrlBrain():
             self.seed = np.random.randint(0,999) 
         
         # Q-Network
-        self.dqnLocal = DenseNetwork(self.stateSize, self.actionSize, hiddenLayers, dropProb, self.seed).to(device)
-        self.dqnTarget = DenseNetwork(self.stateSize, self.actionSize, hiddenLayers, dropProb, self.seed).to(device)
+        self.dqnLocal = DenseNetwork(self.stateSize, self.actionSize, self.hiddenLayers, self.dropProb, self.seed).to(device)
+        self.dqnTarget = DenseNetwork(self.stateSize, self.actionSize, self.hiddenLayers, self.dropProb, self.seed).to(device)
         
         self.optimizer = optim.Adam(self.dqnLocal.parameters(), lr=self.learningRate)
         
-        self.memory = Memory(bufferSize, batchSize, seed)
+        self.memory = Memory(self.bufferSize, self.batchSize, seed)
         
-        
+     
     
     def react(self,state,eps):
         """
@@ -187,6 +192,31 @@ class DrlBrain():
             self._learn()
         
     
+# # #     def getPickleReadyBrain(self):
+# # #         pickledBrain = copy(self)
+# # #         pickledBrain.dqnLocal = None
+# # #         pickledBrain.dqnTarget = None
+# # #         pickledBrain.optimizer = None
+# # #         pickledBrain.memory = None
+# # #         return pickledBrain
+# # # 
+# # #     @classmethod
+# # #     def loadPickledBrain(cls,pathToPickledBrainFile,pathToWeigthsFile=None):
+# # #         with open(pathToPickledBrainFile, 'rb') as input:
+# # #             pickledBrain = pickle.load(input)
+# # #             
+# # #         # Q-Network
+# # #         pickledBrain.dqnLocal = DenseNetwork(pickledBrain.stateSize, pickledBrain.actionSize, pickledBrain.hiddenLayers, pickledBrain.dropProb, pickledBrain.seed).to(device)
+# # #         pickledBrain.dqnTarget = DenseNetwork(pickledBrain.stateSize, pickledBrain.actionSize, pickledBrain.hiddenLayers, pickledBrain.dropProb, pickledBrain.seed).to(device)
+# # #         
+# # #         pickledBrain.optimizer = optim.Adam(pickledBrain.dqnLocal.parameters(), lr=pickledBrain.learningRate)        
+# # #         pickledBrain.memory = Memory(pickledBrain.bufferSize, pickledBrain.batchSize, pickledBrain.seed)
+# # #         
+# # #         if pathToWeigthsFile!=None:
+# # #             pickledBrain.dqnLocal.load_state_dict(torch.load(pathToWeigthsFile))
+# # #             pickledBrain.dqnTarget.load_state_dict(torch.load(pathToWeigthsFile))
+# # #             
+# # #         return pickledBrain
     
     def _learn(self):    
         """
